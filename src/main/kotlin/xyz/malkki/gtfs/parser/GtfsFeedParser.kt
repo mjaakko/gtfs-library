@@ -73,7 +73,7 @@ class GtfsFeedParser(private val zipFile: ZipFile) : AutoCloseable {
 
     fun parseCalendars(): Stream<Calendar> = parseFile(CALENDAR_FILE)
 
-    fun parseCalendarDates(): Stream<Calendar> = parseFile(CALENDAR_DATES_FILE)
+    fun parseCalendarDates(): Stream<CalendarDate> = parseFile(CALENDAR_DATES_FILE)
 
     fun parseFareRules(): Stream<FareRule> = parseFile(FARE_RULES_FILE)
 
