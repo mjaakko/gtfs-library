@@ -19,5 +19,5 @@ data class Trip(
     @Parsed(field = ["block_id"]) val blockId: String?,
     @Parsed(field = ["shape_id"]) val shapeId: String?,
     @Parsed(field = ["wheelchair_accessible"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val wheelchairAccessible: Int?,
-    @Parsed(field = ["bikes_allowed"]) val bikesAllowed: Int?
+    @Parsed(field = ["bikes_allowed"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val bikesAllowed: Int?
 )
