@@ -1,7 +1,9 @@
 package xyz.malkki.gtfs.model
 
+import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
+import xyz.malkki.gtfs.parser.converters.NullableIntegerConversion
 
 /**
  * See https://developers.google.com/transit/gtfs/reference#routestxt
@@ -17,7 +19,7 @@ data class Route(
     @Parsed(field = ["route_url"]) val routeUrl: String?,
     @Parsed(field = ["route_color"]) val routeColor: String?,
     @Parsed(field = ["route_text_color"]) val routeTextColor: String?,
-    @Parsed(field = ["route_sort_order"]) val routeSortOrder: Int?,
-    @Parsed(field = ["continuous_pickup"]) val continuousPickup: Int?,
-    @Parsed(field = ["continuous_drop_off"]) val continuousDropOff: Int?
+    @Parsed(field = ["route_sort_order"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val routeSortOrder: Int?,
+    @Parsed(field = ["continuous_pickup"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val continuousPickup: Int?,
+    @Parsed(field = ["continuous_drop_off"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val continuousDropOff: Int?
 )

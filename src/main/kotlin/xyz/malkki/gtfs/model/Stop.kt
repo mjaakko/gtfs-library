@@ -3,6 +3,7 @@ package xyz.malkki.gtfs.model
 import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
+import xyz.malkki.gtfs.parser.converters.NullableIntegerConversion
 import xyz.malkki.gtfs.parser.converters.ZoneIdConversion
 import java.time.ZoneId
 
@@ -19,10 +20,10 @@ data class Stop(
     @Parsed(field = ["stop_lon"]) val stopLon: Double?,
     @Parsed(field = ["zone_id"]) val zoneId: String?,
     @Parsed(field = ["stop_url"]) val stopUrl: String?,
-    @Parsed(field = ["location_type"]) val locationType: Int?,
+    @Parsed(field = ["location_type"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val locationType: Int?,
     @Parsed(field = ["parent_station"]) val parentStation: String?,
     @Parsed(field = ["stop_timezone"], applyDefaultConversion = false) @Convert(conversionClass = ZoneIdConversion::class) val stopTimezone: ZoneId?,
-    @Parsed(field = ["wheelchair_boarding"]) val wheelchairBoarding: Int?,
+    @Parsed(field = ["wheelchair_boarding"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val wheelchairBoarding: Int?,
     @Parsed(field = ["level_id"]) val levelId: String?,
     @Parsed(field = ["platform_code"]) val platformCode: String?
 )
