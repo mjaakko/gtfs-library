@@ -4,6 +4,7 @@ import com.univocity.parsers.csv.CsvParserSettings
 import com.univocity.parsers.csv.CsvRoutines
 import xyz.malkki.gtfs.model.*
 import java.io.BufferedInputStream
+import java.io.IOException
 import java.io.InputStream
 import java.nio.charset.StandardCharsets
 import java.nio.file.Path
@@ -14,7 +15,8 @@ import kotlin.streams.asStream
 /**
  * @param zipFile ZIP file that contains the GTFS feed
  */
-class GtfsFeedParser(private val zipFile: ZipFile) : AutoCloseable {
+class GtfsFeedParser @Throws(IOException::class) constructor(private val zipFile: ZipFile) : AutoCloseable {
+    @Throws(IOException::class)
     constructor(path: Path) : this(ZipFile(path.toFile(), StandardCharsets.UTF_8))
 
     companion object {
@@ -59,6 +61,7 @@ class GtfsFeedParser(private val zipFile: ZipFile) : AutoCloseable {
      *
      * @return true if GTFS file contains all necessary files, false otherwise
      */
+    @Throws(IOException::class)
     fun validateFiles(): Boolean {
         val zipEntryNames = zipFile.entries().toList().map { it.name }.toSet()
 
@@ -67,38 +70,55 @@ class GtfsFeedParser(private val zipFile: ZipFile) : AutoCloseable {
                 && ((TRANSLATIONS_FILE in zipEntryNames && FEED_INFO_FILE in zipEntryNames) || TRANSLATIONS_FILE !in FEED_INFO_FILE)
     }
 
+    @Throws(IOException::class)
     fun parseAgencies(): Stream<Agency> = parseFile(AGENCY_FILE)
 
+    @Throws(IOException::class)
     fun parseAttributions(): Stream<Attribution> = parseFile(ATTRIBUTIONS_FILE)
 
+    @Throws(IOException::class)
     fun parseCalendars(): Stream<Calendar> = parseFile(CALENDAR_FILE)
 
+    @Throws(IOException::class)
     fun parseCalendarDates(): Stream<CalendarDate> = parseFile(CALENDAR_DATES_FILE)
 
+    @Throws(IOException::class)
     fun parseFareRules(): Stream<FareRule> = parseFile(FARE_RULES_FILE)
 
+    @Throws(IOException::class)
     fun parseFareAttributes(): Stream<FareAttribute> = parseFile(FARE_ATTRIBUTES_FILE)
 
+    @Throws(IOException::class)
     fun parseFeedInfo(): Stream<FeedInfo> = parseFile(FEED_INFO_FILE)
 
+    @Throws(IOException::class)
     fun parseFrequencies(): Stream<Frequency> = parseFile(FREQUENCIES_FILE)
 
+    @Throws(IOException::class)
     fun parseLevels(): Stream<Level> = parseFile(LEVELS_FILE)
 
+    @Throws(IOException::class)
     fun parsePathways(): Stream<Pathway> = parseFile(PATHWAYS_FILE)
 
+    @Throws(IOException::class)
     fun parseRoutes(): Stream<Route> = parseFile(ROUTES_FILE)
 
+    @Throws(IOException::class)
     fun parseShapes(): Stream<Shape> = parseFile(SHAPES_FILE)
 
+    @Throws(IOException::class)
     fun parseStops(): Stream<Stop> = parseFile(STOPS_FILE)
 
+    @Throws(IOException::class)
     fun parseStopTimes(): Stream<StopTime> = parseFile(STOP_TIMES_FILE)
 
+    @Throws(IOException::class)
     fun parseTransfers(): Stream<Transfer> = parseFile(TRANSFERS_FILE)
 
+    @Throws(IOException::class)
     fun parseTranslations(): Stream<Translation> = parseFile(TRANSLATIONS_FILE)
 
+    @Throws(IOException::class)
     fun parseTrips(): Stream<Trip> = parseFile(TRIPS_FILE)
 
     override fun close() {
