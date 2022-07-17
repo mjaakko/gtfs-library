@@ -3,6 +3,23 @@ package xyz.malkki.gtfs.parser
 import com.univocity.parsers.csv.CsvParserSettings
 import com.univocity.parsers.csv.CsvRoutines
 import xyz.malkki.gtfs.model.*
+import xyz.malkki.gtfs.parser.GtfsConstants.AGENCY_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.ATTRIBUTIONS_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.CALENDAR_DATES_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.CALENDAR_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.FARE_ATTRIBUTES_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.FARE_RULES_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.FEED_INFO_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.FREQUENCIES_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.LEVELS_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.PATHWAYS_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.ROUTES_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.SHAPES_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.STOPS_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.STOP_TIMES_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.TRANSFERS_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.TRANSLATIONS_FILE
+import xyz.malkki.gtfs.parser.GtfsConstants.TRIPS_FILE
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.io.InputStream
@@ -20,24 +37,6 @@ class GtfsFeedParser @Throws(IOException::class) constructor(private val zipFile
     constructor(path: Path) : this(ZipFile(path.toFile(), StandardCharsets.UTF_8))
 
     companion object {
-        private const val AGENCY_FILE = "agency.txt"
-        private const val ATTRIBUTIONS_FILE = "attributions.txt"
-        private const val CALENDAR_FILE = "calendar.txt"
-        private const val CALENDAR_DATES_FILE = "calendar_dates.txt"
-        private const val FARE_ATTRIBUTES_FILE = "fare_attributes.txt"
-        private const val FARE_RULES_FILE = "fare_rules.txt"
-        private const val FEED_INFO_FILE = "feed_info.txt"
-        private const val FREQUENCIES_FILE = "frequencies.txt"
-        private const val LEVELS_FILE = "levels.txt"
-        private const val PATHWAYS_FILE = "pathways.txt"
-        private const val ROUTES_FILE = "routes.txt"
-        private const val SHAPES_FILE = "shapes.txt"
-        private const val STOPS_FILE = "stops.txt"
-        private const val STOP_TIMES_FILE = "stop_times.txt"
-        private const val TRANSFERS_FILE = "transfers.txt"
-        private const val TRANSLATIONS_FILE = "translations.txt"
-        private const val TRIPS_FILE = "trips.txt"
-
         private val REQUIRED_FILES = listOf(AGENCY_FILE, STOPS_FILE, ROUTES_FILE, TRIPS_FILE, STOP_TIMES_FILE)
     }
 
