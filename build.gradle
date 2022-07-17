@@ -19,6 +19,7 @@ dependencies {
 
 noArg {
     annotation("xyz.malkki.gtfs.NoArgConstructor")
+    invokeInitializers = true
 }
 
 publishing {
