@@ -1,6 +1,6 @@
 package xyz.malkki.gtfs.utils
 
-object GtfsTimeUtils {
+object GtfsTimeFormat {
     @JvmStatic
     fun parseFromString(str: String): Int {
         val strParts = str.split(":", limit = 3)

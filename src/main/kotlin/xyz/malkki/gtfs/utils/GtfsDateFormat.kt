@@ -3,8 +3,8 @@ package xyz.malkki.gtfs.utils
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-object GtfsDateUtils {
-    val GTFS_DATE_FORMAT = "yyyyMMdd"
+object GtfsDateFormat {
+    private const val GTFS_DATE_FORMAT = "yyyyMMdd"
 
     private val dateTimeFormatter = DateTimeFormatter.ofPattern(GTFS_DATE_FORMAT)!!
 

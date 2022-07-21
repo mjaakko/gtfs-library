@@ -6,19 +6,19 @@ import java.time.format.DateTimeParseException
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class GtfsDateUtilsTest {
+class GtfsDateFormatTest {
     @Test
     fun `Test parsing invalid date`() {
-        assertThrows<DateTimeParseException> { GtfsDateUtils.parseFromString("abc") }
+        assertThrows<DateTimeParseException> { GtfsDateFormat.parseFromString("abc") }
     }
 
     @Test
     fun `Test parsing valid date`() {
-        assertEquals(LocalDate.of(2022, 1, 1), GtfsDateUtils.parseFromString("20220101"))
+        assertEquals(LocalDate.of(2022, 1, 1), GtfsDateFormat.parseFromString("20220101"))
     }
 
     @Test
     fun `Test formatting date`() {
-        assertEquals("20220101", GtfsDateUtils.formatToString(LocalDate.of(2022, 1, 1)))
+        assertEquals("20220101", GtfsDateFormat.formatToString(LocalDate.of(2022, 1, 1)))
     }
 }
