@@ -9,6 +9,8 @@ import java.util.*
 
 /**
  * See https://developers.google.com/transit/gtfs/reference#fare_attributestxt
+ *
+ * @property currencyTypeAsCurrency Currency type as Java Currency. null if currency type is null or unsupported
  */
 @NoArgConstructor
 data class FareAttribute(
@@ -20,5 +22,9 @@ data class FareAttribute(
     @Parsed(field = ["agency_id"]) val agencyId: String?,
     @Parsed(field = ["transfer_duration"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val transferDuration: Duration?
 ) {
-    val currencyTypeAsCurrency = Currency.getInstance(currencyType)!!
+    val currencyTypeAsCurrency: Currency? = try {
+        Currency.getInstance(currencyType)
+    } catch (ex: Exception) {
+        null
+    }
 }
