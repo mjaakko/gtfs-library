@@ -1,4 +1,4 @@
-package xyz.malkki.gtfs.parser.converters
+package xyz.malkki.gtfs.serialization.converters
 
 import com.univocity.parsers.conversions.Conversion
 

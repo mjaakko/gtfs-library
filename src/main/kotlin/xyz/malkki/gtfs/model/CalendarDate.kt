@@ -3,7 +3,7 @@ package xyz.malkki.gtfs.model
 import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
-import xyz.malkki.gtfs.parser.converters.LocalDateConversion
+import xyz.malkki.gtfs.serialization.converters.LocalDateConversion
 import java.time.LocalDate
 
 /**

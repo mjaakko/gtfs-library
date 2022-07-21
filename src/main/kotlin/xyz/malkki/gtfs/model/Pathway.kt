@@ -3,8 +3,8 @@ package xyz.malkki.gtfs.model
 import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
-import xyz.malkki.gtfs.parser.converters.DurationConversion
-import xyz.malkki.gtfs.parser.converters.NullableIntegerConversion
+import xyz.malkki.gtfs.serialization.converters.DurationConversion
+import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
 import java.time.Duration
 
 /**

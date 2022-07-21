@@ -3,7 +3,7 @@ package xyz.malkki.gtfs.model
 import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
-import xyz.malkki.gtfs.parser.converters.NullableIntegerConversion
+import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
 
 /**
  * See https://developers.google.com/transit/gtfs/reference#tripstxt

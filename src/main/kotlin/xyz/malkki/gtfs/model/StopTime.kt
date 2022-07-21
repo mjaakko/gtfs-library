@@ -3,10 +3,10 @@ package xyz.malkki.gtfs.model
 import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
-import xyz.malkki.gtfs.parser.converters.BooleanConversion
-import xyz.malkki.gtfs.parser.converters.NullableDoubleConversion
-import xyz.malkki.gtfs.parser.converters.NullableIntegerConversion
-import xyz.malkki.gtfs.parser.converters.SecondsConversion
+import xyz.malkki.gtfs.serialization.converters.BooleanConversion
+import xyz.malkki.gtfs.serialization.converters.NullableDoubleConversion
+import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
+import xyz.malkki.gtfs.serialization.converters.SecondsConversion
 
 /**
  * See https://developers.google.com/transit/gtfs/reference#stop_timestxt

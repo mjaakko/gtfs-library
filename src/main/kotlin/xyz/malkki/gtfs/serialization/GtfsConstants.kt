@@ -1,4 +1,4 @@
-package xyz.malkki.gtfs.parser
+package xyz.malkki.gtfs.serialization
 
 object GtfsConstants {
     const val AGENCY_FILE = "agency.txt"
