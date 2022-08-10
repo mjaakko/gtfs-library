@@ -27,4 +27,13 @@ data class FareAttribute(
     } catch (ex: Exception) {
         null
     }
+
+    companion object {
+        const val PAYMENT_METHOD_ON_BOARD = 0
+        const val PAYMENT_METHOD_BEFORE_BOARDING = 1
+
+        const val TRANSFERS_NONE = 0
+        const val TRANSFERS_ONCE = 1
+        const val TRANSFERS_TWICE = 2
+    }
 }

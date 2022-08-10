@@ -26,4 +26,12 @@ data class Stop(
     @Parsed(field = ["wheelchair_boarding"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val wheelchairBoarding: Int?,
     @Parsed(field = ["level_id"]) val levelId: String?,
     @Parsed(field = ["platform_code"]) val platformCode: String?
-)
+) {
+    companion object {
+        const val LOCATION_TYPE_STOP = 0
+        const val LOCATION_TYPE_STATION = 1
+        const val LOCATION_TYPE_ENTRANCE_EXIT = 2
+        const val LOCATION_TYPE_GENERIC_NODE = 3
+        const val LOCATION_TYPE_BOARDING_AREA = 4
+    }
+}

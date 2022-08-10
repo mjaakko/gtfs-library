@@ -14,4 +14,9 @@ data class CalendarDate(
     @Parsed(field = ["service_id"]) val serviceId: String,
     @Parsed(field = ["date"], applyDefaultConversion = false) @Convert(conversionClass = LocalDateConversion::class) val date: LocalDate,
     @Parsed(field = ["exception_type"]) val exceptionType: Int
-)
+) {
+    companion object {
+        const val EXCEPTION_TYPE_ADDED = 1
+        const val EXCEPTION_TYPE_REMOVED = 2
+    }
+}

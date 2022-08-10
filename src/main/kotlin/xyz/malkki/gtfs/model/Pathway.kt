@@ -24,4 +24,14 @@ data class Pathway(
     @Parsed(field = ["min_width"]) val minWidth: Double?,
     @Parsed(field = ["signposted_as"]) val signpostedAs: String?,
     @Parsed(field = ["reversed_signposted_as"]) val reversedSignpostedAs: String?
-)
+) {
+    companion object {
+        const val PATHWAY_MODE_WALKWAY = 1
+        const val PATHWAY_MODE_STAIRS = 2
+        const val PATHWAY_MOVING_SIDEWALK = 3
+        const val PATHWAY_ESCALATOR = 4
+        const val PATHWAY_ELEVATOR = 4
+        const val PATHWAY_FARE_GATE = 6
+        const val PATHWAY_EXIT_GATE = 7
+    }
+}
