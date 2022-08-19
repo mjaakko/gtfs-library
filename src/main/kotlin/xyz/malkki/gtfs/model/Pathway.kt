@@ -3,6 +3,7 @@ package xyz.malkki.gtfs.model
 import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
+import xyz.malkki.gtfs.serialization.converters.BooleanConversion
 import xyz.malkki.gtfs.serialization.converters.DurationConversion
 import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
 import java.time.Duration
@@ -16,7 +17,7 @@ data class Pathway(
     @Parsed(field = ["from_stop_id"]) val fromStopId: String,
     @Parsed(field = ["to_stop_id"]) val toStopId: String,
     @Parsed(field = ["pathway_mode"]) val pathwayMode: Int,
-    @Parsed(field = ["is_bidirectional"]) val isBidirectional: Int,
+    @Parsed(field = ["is_bidirectional"], applyDefaultConversion = false) @Convert(conversionClass = BooleanConversion::class) val isBidirectional: Boolean,
     @Parsed(field = ["length"]) val length: Double?,
     @Parsed(field = ["traversal_time"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val traversalTime: Duration?,
     @Parsed(field = ["stair_count"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val stairCount: Int?,
