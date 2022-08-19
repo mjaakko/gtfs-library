@@ -5,6 +5,7 @@ import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
 import xyz.malkki.gtfs.serialization.converters.LocalDateConversion
 import java.time.LocalDate
+import java.util.*
 
 /**
  * See https://developers.google.com/transit/gtfs/reference#feed_infotxt
@@ -20,4 +21,7 @@ data class FeedInfo(
     @Parsed(field = ["feed_version"]) val feedVersion: String?,
     @Parsed(field = ["feed_contact_email"]) val feedContactEmail: String?,
     @Parsed(field = ["feed_contact_url"]) val feedContactUrl: String?
-)
+) {
+    val feedLangAsLocale = Locale.forLanguageTag(feedLang)!!
+    val defaultLangAsLocale = defaultLang?.let { Locale.forLanguageTag(defaultLang) }
+}

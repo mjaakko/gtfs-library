@@ -2,6 +2,7 @@ package xyz.malkki.gtfs.model
 
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
+import java.util.*
 
 /**
  * See https://developers.google.com/transit/gtfs/reference#translationstxt
@@ -15,4 +16,6 @@ data class Translation(
     @Parsed(field = ["record_id"]) val recordId: String?,
     @Parsed(field = ["record_sub_id"]) val recordSubId: String?,
     @Parsed(field = ["field_value"]) val fieldValue: String?
-)
+) {
+    val languageAsLocale = Locale.forLanguageTag(language)!!
+}

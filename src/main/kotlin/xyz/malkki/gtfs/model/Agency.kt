@@ -5,6 +5,7 @@ import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
 import xyz.malkki.gtfs.serialization.converters.ZoneIdConversion
 import java.time.ZoneId
+import java.util.*
 
 /**
  * See https://developers.google.com/transit/gtfs/reference#agencytxt
@@ -19,4 +20,6 @@ data class Agency(
     @Parsed(field = ["agency_phone"]) val agencyPhone: String?,
     @Parsed(field = ["agency_fare_url"]) val agencyFareUrl: String?,
     @Parsed(field = ["agency_email"]) val agencyEmail: String?
-)
+) {
+    val agencyLangAsLocale = agencyLang?.let { Locale.forLanguageTag(it) }
+}
