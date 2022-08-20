@@ -22,6 +22,6 @@ data class FeedInfo(
     @Parsed(field = ["feed_contact_email"]) val feedContactEmail: String?,
     @Parsed(field = ["feed_contact_url"]) val feedContactUrl: String?
 ) {
-    val feedLangAsLocale = Locale.forLanguageTag(feedLang)!!
-    val defaultLangAsLocale = defaultLang?.let { Locale.forLanguageTag(defaultLang) }
+    val feedLangAsLocale by lazy { Locale.forLanguageTag(feedLang)!! }
+    val defaultLangAsLocale by lazy { defaultLang ?. let { Locale.forLanguageTag(defaultLang) } }
 }

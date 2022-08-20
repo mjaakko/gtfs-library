@@ -21,5 +21,5 @@ data class Agency(
     @Parsed(field = ["agency_fare_url"]) val agencyFareUrl: String?,
     @Parsed(field = ["agency_email"]) val agencyEmail: String?
 ) {
-    val agencyLangAsLocale = agencyLang?.let { Locale.forLanguageTag(it) }
+    val agencyLangAsLocale by lazy { agencyLang?.let { Locale.forLanguageTag(it) } }
 }

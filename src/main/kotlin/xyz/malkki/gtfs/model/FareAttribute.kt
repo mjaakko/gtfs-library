@@ -23,10 +23,12 @@ data class FareAttribute(
     @Parsed(field = ["agency_id"]) val agencyId: String?,
     @Parsed(field = ["transfer_duration"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val transferDuration: Duration?
 ) {
-    val currencyTypeAsCurrency: Currency? = try {
-        Currency.getInstance(currencyType)
-    } catch (ex: Exception) {
-        null
+    val currencyTypeAsCurrency: Currency? by lazy {
+        try {
+            Currency.getInstance(currencyType)
+        } catch (ex: Exception) {
+            null
+        }
     }
 
     companion object {
