@@ -3,7 +3,7 @@ package xyz.malkki.gtfs.model
 import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
-import xyz.malkki.gtfs.serialization.converters.BooleanConversion
+import xyz.malkki.gtfs.serialization.converters.NullableBooleanConversion
 import xyz.malkki.gtfs.serialization.converters.NullableDoubleConversion
 import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
 import xyz.malkki.gtfs.serialization.converters.SecondsConversion
@@ -24,7 +24,7 @@ data class StopTime(
     @Parsed(field = ["continuous_pickup"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val continuousPickup: Int?,
     @Parsed(field = ["continuous_dropoff"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val continuousDropOff: Int?,
     @Parsed(field = ["shape_dist_traveled"], applyDefaultConversion = false) @Convert(conversionClass = NullableDoubleConversion::class) val shapeDistTraveled: Double?,
-    @Parsed(field = ["timepoint"], applyDefaultConversion = false) @Convert(conversionClass = BooleanConversion::class) val timepoint: Boolean?
+    @Parsed(field = ["timepoint"], applyDefaultConversion = false) @Convert(conversionClass = NullableBooleanConversion::class) val timepoint: Boolean?
 ) : Comparable<StopTime> {
     override fun compareTo(other: StopTime): Int {
         val byTripId = tripId.compareTo(other.tripId)
