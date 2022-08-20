@@ -4,6 +4,7 @@ import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
 import xyz.malkki.gtfs.serialization.converters.DurationConversion
+import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
 import java.time.Duration
 import java.util.*
 
@@ -18,7 +19,7 @@ data class FareAttribute(
     @Parsed(field = ["price"]) val price: Double,
     @Parsed(field = ["currency_type"]) val currencyType: String,
     @Parsed(field = ["payment_method"]) val paymentMethod: Int,
-    @Parsed(field = ["transfers"]) val transfers: Int,
+    @Parsed(field = ["transfers"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val transfers: Int?,
     @Parsed(field = ["agency_id"]) val agencyId: String?,
     @Parsed(field = ["transfer_duration"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val transferDuration: Duration?
 ) {
