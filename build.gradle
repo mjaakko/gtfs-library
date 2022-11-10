@@ -1,6 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.7.10'
     id "org.jetbrains.kotlin.plugin.noarg" version '1.7.10'
+    id "org.jetbrains.dokka" version "1.7.10"
     id "maven-publish"
 }
 
@@ -38,6 +39,10 @@ publishing {
             from(components.java)
         }
     }
+}
+
+dokkaHtml {
+    outputDirectory.set(file("${buildDir}/dokka"))
 }
 
 test {
