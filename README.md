@@ -1,4 +1,4 @@
-# gtfs-library [![Test and build](https://github.com/mjaakko/gtfs-library/actions/workflows/build-and-publish.yml/badge.svg)](https://github.com/mjaakko/gtfs-library/actions/workflows/build-and-publish.yml)
+# gtfs-library [![Run tests and build project](https://github.com/mjaakko/gtfs-library/actions/workflows/build.yml/badge.svg)](https://github.com/mjaakko/gtfs-library/actions/workflows/build.yml)
 Kotlin library for handling GTFS files. Supports both parsing and writing GTFS files.
 
 ## Usage
