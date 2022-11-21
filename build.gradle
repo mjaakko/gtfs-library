@@ -43,6 +43,12 @@ publishing {
 
 dokkaHtml {
     outputDirectory.set(file("${buildDir}/dokka"))
+
+    dokkaSourceSets {
+        configureEach {
+            includes.from("docs/packages.md")
+        }
+    }
 }
 
 test {
