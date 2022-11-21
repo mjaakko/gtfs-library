@@ -6,6 +6,8 @@ import java.util.*
 
 /**
  * See [https://developers.google.com/transit/gtfs/reference#translationstxt](https://developers.google.com/transit/gtfs/reference#translationstxt)
+ *
+ * @property languageAsLocale [language] as Java Locale
  */
 @NoArgConstructor
 data class Translation(

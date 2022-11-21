@@ -13,13 +13,15 @@ import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
 /**
+ * Writes the GTFS feed to a ZIP archive
+ *
  * @param outputStream Output stream where the GTFS zip will be written
- * @param compressionLevel Compression level to be used, see java.util.zip.Deflater for possible values
+ * @param compressionLevel Compression level to be used, see [java.util.zip.Deflater] for possible values
  */
 class ZipGtfsFeedWriter @JvmOverloads @Throws(IOException::class) constructor(outputStream: OutputStream, compressionLevel: Int = Deflater.BEST_COMPRESSION) : GtfsFeedWriter() {
     /**
      * @param outputFile Path to the GTFS file
-     * @param compressionLevel Compression level to be used, see java.util.zip.Deflater for possible values
+     * @param compressionLevel Compression level to be used, see [java.util.zip.Deflater] for possible values
      */
     @JvmOverloads
     @Throws(IOException::class)
@@ -71,6 +73,9 @@ class ZipGtfsFeedWriter @JvmOverloads @Throws(IOException::class) constructor(ou
         writeFile(trips, GtfsConstants.TRIPS_FILE)
     }
 
+    /**
+     * Closes the underlying output stream
+     */
     override fun close() = zipOutputStream.close()
 
     private class ZipEntryOutputStream(private val zipOutputStream: ZipOutputStream, entryName: String) : OutputStream() {

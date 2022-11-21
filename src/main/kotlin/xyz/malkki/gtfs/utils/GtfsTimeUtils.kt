@@ -6,11 +6,18 @@ import java.time.ZonedDateTime
 
 object GtfsTimeUtils {
     /**
-     * Calculates real date-time from GTFS service day and GTFS time
+     * Calculates [ZonedDateTime] from GTFS service day and GTFS time. Implementation is based on the description of **Time** field described [here](https://developers.google.com/transit/gtfs/reference#field_types).
+     *
+     * Example:
+     * ```
+     * gtfsTimeToZonedDateTime(LocalDate.of(2022, 1, 1), parseFromString("12:00:00"), ZoneId.of("Asia/Tokyo")) 🡒 2022-01-01T12:00+09:00[Asia/Tokyo]
+     * ```
      *
      * @param date Service day
-     * @param seconds Seconds since midnight (arrival time or departure time from StopTime)
-     * @param timezone Timezone that is used in the GTFS feed
+     * @param seconds Seconds since midnight of the service day (e.g. arrival time or departure time from [xyz.malkki.gtfs.model.StopTime])
+     * @param timezone Timezone that is used in the GTFS feed (e.g. [xyz.malkki.gtfs.model.Agency.agencyTimezone])
+     *
+     * @return [ZonedDateTime] corresponding to the given parameters
      */
     @JvmStatic
     fun gtfsTimeToZonedDateTime(date: LocalDate, seconds: Int, timezone: ZoneId): ZonedDateTime {

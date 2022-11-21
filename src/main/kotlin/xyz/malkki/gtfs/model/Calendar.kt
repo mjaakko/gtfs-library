@@ -10,6 +10,8 @@ import java.time.LocalDate
 
 /**
  * See [https://developers.google.com/transit/gtfs/reference#calendartxt](https://developers.google.com/transit/gtfs/reference#calendartxt)
+ *
+ * @property daysOfWeek Set containing days of week of the calendar
  */
 @NoArgConstructor
 data class Calendar(
@@ -36,6 +38,9 @@ data class Calendar(
         )
     }
 
+    /**
+     * @return Iterator, which iterates through all dates in this Calendar in ascending order
+     */
     override fun iterator(): Iterator<LocalDate> = object : Iterator<LocalDate> {
         private var next: LocalDate? = findNext(startDate)
 

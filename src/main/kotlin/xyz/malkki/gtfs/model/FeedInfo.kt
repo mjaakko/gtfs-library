@@ -9,6 +9,9 @@ import java.util.*
 
 /**
  * See [https://developers.google.com/transit/gtfs/reference#feed_infotxt](https://developers.google.com/transit/gtfs/reference#feed_infotxt)
+ *
+ * @property feedLangAsLocale [feedLang] as Java Locale. null if feedLang is null or contains an unsupported language tag
+ * @property defaultLangAsLocale [defaultLang] as Java Locale. null if defaultLang is null or contains an unsupported language tag
  */
 @NoArgConstructor
 data class FeedInfo(
@@ -23,5 +26,5 @@ data class FeedInfo(
     @Parsed(field = ["feed_contact_url"]) val feedContactUrl: String?
 ) {
     val feedLangAsLocale by lazy { Locale.forLanguageTag(feedLang)!! }
-    val defaultLangAsLocale by lazy { defaultLang ?. let { Locale.forLanguageTag(defaultLang) } }
+    val defaultLangAsLocale by lazy { defaultLang?.let { Locale.forLanguageTag(defaultLang) } }
 }

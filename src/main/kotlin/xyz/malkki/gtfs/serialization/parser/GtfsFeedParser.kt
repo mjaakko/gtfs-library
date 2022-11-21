@@ -33,6 +33,13 @@ abstract class GtfsFeedParser : AutoCloseable {
     @Throws(IOException::class)
     protected abstract fun getFileNames(): Set<String>
 
+    /**
+     * Verifies that the GTFS feed contains all necessary files. Only the presence of files is validated, not their content.
+     *
+     * See [https://developers.google.com/transit/gtfs/reference#dataset_files](https://developers.google.com/transit/gtfs/reference#dataset_files) for list of files that are required for a valid GTFS feed.
+     *
+     * @return true if the GTFS feed contains all necessary files, false if not
+     */
     @Throws(IOException::class)
     fun validateFiles(): Boolean {
         val fileNames = getFileNames()

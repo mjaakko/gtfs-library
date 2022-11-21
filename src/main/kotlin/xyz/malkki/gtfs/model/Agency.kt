@@ -9,6 +9,8 @@ import java.util.*
 
 /**
  * See [https://developers.google.com/transit/gtfs/reference#agencytxt](https://developers.google.com/transit/gtfs/reference#agencytxt)
+ *
+ * @property agencyLangAsLocale [agencyLang] as Java Locale. null if agencyLang is null or contains an unsupported language tag
  */
 @NoArgConstructor
 data class Agency(

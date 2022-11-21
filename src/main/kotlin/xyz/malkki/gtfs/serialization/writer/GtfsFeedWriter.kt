@@ -9,7 +9,7 @@ import java.io.OutputStream
 
 abstract class GtfsFeedWriter : AutoCloseable {
     protected inline fun <reified T> writeToStream(content: Collection<T>?, outputStream: OutputStream) {
-        if (content != null && content.isNotEmpty()) {
+        if (!content.isNullOrEmpty()) {
             val csvWriterSettings = CsvWriterSettings().apply {
                 isHeaderWritingEnabled = true
                 isAutoConfigurationEnabled = true
@@ -22,6 +22,9 @@ abstract class GtfsFeedWriter : AutoCloseable {
         }
     }
 
+    /**
+     * Writes content to the GTFS feed. Parameters which are null or contain an empty collection are not written
+     */
     @Throws(IOException::class)
     abstract fun writeGtfsFeed(
         agencies: Collection<Agency>?,

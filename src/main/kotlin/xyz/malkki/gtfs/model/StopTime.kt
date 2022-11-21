@@ -26,6 +26,14 @@ data class StopTime(
     @Parsed(field = ["shape_dist_traveled"], applyDefaultConversion = false) @Convert(conversionClass = NullableDoubleConversion::class) val shapeDistTraveled: Double?,
     @Parsed(field = ["timepoint"], applyDefaultConversion = false) @Convert(conversionClass = NullableBooleanConversion::class) val timepoint: Boolean?
 ) : Comparable<StopTime> {
+    /**
+     * Compares this stop time to the other.
+     *
+     * If [tripId] is not the same for both stop times, comparison is done by comparing [tripId] with [String.compareTo].
+     * If the [tripId] is the same for both stop times, comparison is done by comparing [stopSequence] with [Int.compareTo]
+     *
+     * @return -1 if this stop time is before the other shape, 0 if both stop times are the same, 1 if this stop time is after the other
+     */
     override fun compareTo(other: StopTime): Int {
         val byTripId = tripId.compareTo(other.tripId)
 

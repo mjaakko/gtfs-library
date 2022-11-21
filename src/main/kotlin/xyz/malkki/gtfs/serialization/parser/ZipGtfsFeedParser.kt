@@ -26,9 +26,14 @@ import java.util.stream.Stream
 import java.util.zip.ZipFile
 
 /**
+ * Parses GTFS feed from a ZIP archive
+ *
  * @param zipFile ZIP file that contains the GTFS feed
  */
 class ZipGtfsFeedParser @Throws(IOException::class) constructor(private val zipFile: ZipFile) : GtfsFeedParser() {
+    /**
+     * @param path Path to the ZIP file that contains the GTFS feed
+     */
     @Throws(IOException::class)
     constructor(path: Path) : this(ZipFile(path.toFile(), StandardCharsets.UTF_8))
 
@@ -93,6 +98,9 @@ class ZipGtfsFeedParser @Throws(IOException::class) constructor(private val zipF
     @Throws(IOException::class)
     override fun parseTrips(): Stream<Trip> = parseFile(TRIPS_FILE)
 
+    /**
+     * Closes the ZIP file
+     */
     override fun close() {
         zipFile.close()
     }

@@ -7,7 +7,9 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 /**
- * @param directory Directory where GTFS files will be written
+ * Writes uncompressed files containing the GTFS feed to the specified directory
+ *
+ * @param directory Directory where the GTFS files will be written
  */
 class DirectoryGtfsFeedWriter(private val directory: Path) : GtfsFeedWriter() {
     private inline fun <reified T> writeFile(content: Collection<T>?, fileName: String) {

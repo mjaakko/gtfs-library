@@ -1,6 +1,18 @@
 package xyz.malkki.gtfs.utils
 
 object GtfsTimeFormat {
+    /**
+     * Parses time in GTFS format (`HH:mm:ss`) to a number of seconds. Note that the amount of hours can be more than 23
+     *
+     * Example:
+     * ```
+     * parseFromString("15:45:30") == 56730
+     * parseFromString("26:45:30") == 96330
+     * ```
+     *
+     * @throws IllegalArgumentException If the time string is not in correct format
+     * @return Number of seconds
+     */
     @JvmStatic
     fun parseFromString(str: String): Int {
         val strParts = str.split(":", limit = 3)
@@ -16,6 +28,17 @@ object GtfsTimeFormat {
         }
     }
 
+    /**
+     * Formats the amount of seconds to time string in GTFS format. Note that the amount of hours can be more than 23
+     *
+     * Example:
+     * ```
+     * formatToString(56730) == "15:45:30"
+     * formatToString(96330) == "26:45:30"
+     * ```
+     *
+     * @return Time string in GTFS format
+     */
     @JvmStatic
     fun formatToString(value: Int): String {
         val hours = value / 3600

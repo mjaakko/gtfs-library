@@ -8,6 +8,11 @@ import java.nio.file.Path
 import java.util.stream.Stream
 import kotlin.streams.toList
 
+/**
+ * Parses uncompressed GTFS files from a directory. The directory must contain all files of the GTFS feed
+ *
+ * @param dirPath Path to the directory which contains files of the GTFS feed
+ */
 class DirectoryGtfsFeedParser(private val dirPath: Path) : GtfsFeedParser() {
     override fun getFileNames(): Set<String> {
         return Files.list(dirPath).map { it.fileName.toString() }.toList().toSet()
