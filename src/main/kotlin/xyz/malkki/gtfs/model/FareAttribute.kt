@@ -9,7 +9,7 @@ import java.time.Duration
 import java.util.*
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#fare_attributestxt
+ * See [https://developers.google.com/transit/gtfs/reference#fare_attributestxt](https://developers.google.com/transit/gtfs/reference#fare_attributestxt)
  *
  * @property currencyTypeAsCurrency Currency type as Java Currency. null if currency type is null or unsupported
  */

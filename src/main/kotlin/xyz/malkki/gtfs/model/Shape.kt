@@ -4,7 +4,7 @@ import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#shapestxt
+ * See [https://developers.google.com/transit/gtfs/reference#shapestxt](https://developers.google.com/transit/gtfs/reference#shapestxt)
  */
 @NoArgConstructor
 data class Shape(

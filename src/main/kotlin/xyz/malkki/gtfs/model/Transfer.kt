@@ -7,7 +7,7 @@ import xyz.malkki.gtfs.serialization.converters.DurationConversion
 import java.time.Duration
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#transferstxt
+ * See [https://developers.google.com/transit/gtfs/reference#transferstxt](https://developers.google.com/transit/gtfs/reference#transferstxt)
  */
 @NoArgConstructor
 data class Transfer(

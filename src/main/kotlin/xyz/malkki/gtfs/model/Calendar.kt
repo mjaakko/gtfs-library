@@ -3,13 +3,13 @@ package xyz.malkki.gtfs.model
 import com.univocity.parsers.annotations.Convert
 import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
-import xyz.malkki.gtfs.serialization.converters.NullableBooleanConversion
 import xyz.malkki.gtfs.serialization.converters.LocalDateConversion
+import xyz.malkki.gtfs.serialization.converters.NullableBooleanConversion
 import java.time.DayOfWeek
 import java.time.LocalDate
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#calendartxt
+ * See [https://developers.google.com/transit/gtfs/reference#calendartxt](https://developers.google.com/transit/gtfs/reference#calendartxt)
  */
 @NoArgConstructor
 data class Calendar(

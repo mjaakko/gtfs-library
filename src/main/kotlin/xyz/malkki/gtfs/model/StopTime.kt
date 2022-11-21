@@ -9,7 +9,7 @@ import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
 import xyz.malkki.gtfs.serialization.converters.SecondsConversion
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#stop_timestxt
+ * See [https://developers.google.com/transit/gtfs/reference#stop_timestxt](https://developers.google.com/transit/gtfs/reference#stop_timestxt)
  */
 @NoArgConstructor
 data class StopTime(

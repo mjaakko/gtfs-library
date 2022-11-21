@@ -8,7 +8,7 @@ import java.time.LocalDate
 import java.util.*
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#feed_infotxt
+ * See [https://developers.google.com/transit/gtfs/reference#feed_infotxt](https://developers.google.com/transit/gtfs/reference#feed_infotxt)
  */
 @NoArgConstructor
 data class FeedInfo(

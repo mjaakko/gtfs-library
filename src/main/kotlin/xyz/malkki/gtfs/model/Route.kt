@@ -6,7 +6,7 @@ import xyz.malkki.gtfs.NoArgConstructor
 import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#routestxt
+ * See [https://developers.google.com/transit/gtfs/reference#routestxt](https://developers.google.com/transit/gtfs/reference#routestxt)
  */
 @NoArgConstructor
 data class Route(

@@ -4,7 +4,7 @@ import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#fare_rulestxt
+ * See [https://developers.google.com/transit/gtfs/reference#fare_rulestxt](https://developers.google.com/transit/gtfs/reference#fare_rulestxt)
  */
 @NoArgConstructor
 data class FareRule(

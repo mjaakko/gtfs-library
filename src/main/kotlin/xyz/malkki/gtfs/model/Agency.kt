@@ -8,7 +8,7 @@ import java.time.ZoneId
 import java.util.*
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#agencytxt
+ * See [https://developers.google.com/transit/gtfs/reference#agencytxt](https://developers.google.com/transit/gtfs/reference#agencytxt)
  */
 @NoArgConstructor
 data class Agency(

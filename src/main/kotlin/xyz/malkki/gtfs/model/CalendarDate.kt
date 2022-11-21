@@ -7,7 +7,7 @@ import xyz.malkki.gtfs.serialization.converters.LocalDateConversion
 import java.time.LocalDate
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#calendar_datestxt
+ * See [https://developers.google.com/transit/gtfs/reference#calendar_datestxt](https://developers.google.com/transit/gtfs/reference#calendar_datestxt)
  */
 @NoArgConstructor
 data class CalendarDate(

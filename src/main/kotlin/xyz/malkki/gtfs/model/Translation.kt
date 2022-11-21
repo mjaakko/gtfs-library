@@ -5,7 +5,7 @@ import xyz.malkki.gtfs.NoArgConstructor
 import java.util.*
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#translationstxt
+ * See [https://developers.google.com/transit/gtfs/reference#translationstxt](https://developers.google.com/transit/gtfs/reference#translationstxt)
  */
 @NoArgConstructor
 data class Translation(

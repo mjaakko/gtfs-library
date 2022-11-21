@@ -8,7 +8,7 @@ import xyz.malkki.gtfs.serialization.converters.ZoneIdConversion
 import java.time.ZoneId
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#stopstxt
+ * See [https://developers.google.com/transit/gtfs/reference#stopstxt](https://developers.google.com/transit/gtfs/reference#stopstxt)
  */
 @NoArgConstructor
 data class Stop(

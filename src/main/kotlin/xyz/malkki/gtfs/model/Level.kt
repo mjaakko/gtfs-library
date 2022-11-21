@@ -4,7 +4,7 @@ import com.univocity.parsers.annotations.Parsed
 import xyz.malkki.gtfs.NoArgConstructor
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#levelstxt
+ * See [https://developers.google.com/transit/gtfs/reference#levelstxt](https://developers.google.com/transit/gtfs/reference#levelstxt)
  */
 @NoArgConstructor
 data class Level(

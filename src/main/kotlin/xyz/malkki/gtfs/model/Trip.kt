@@ -6,7 +6,7 @@ import xyz.malkki.gtfs.NoArgConstructor
 import xyz.malkki.gtfs.serialization.converters.NullableIntegerConversion
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#tripstxt
+ * See [https://developers.google.com/transit/gtfs/reference#tripstxt](https://developers.google.com/transit/gtfs/reference#tripstxt)
  */
 @NoArgConstructor
 data class Trip(

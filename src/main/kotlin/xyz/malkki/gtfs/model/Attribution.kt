@@ -6,7 +6,7 @@ import xyz.malkki.gtfs.NoArgConstructor
 import xyz.malkki.gtfs.serialization.converters.NullableBooleanConversion
 
 /**
- * See https://developers.google.com/transit/gtfs/reference#attributionstxt
+ * See [https://developers.google.com/transit/gtfs/reference#attributionstxt](https://developers.google.com/transit/gtfs/reference#attributionstxt)
  */
 @NoArgConstructor
 data class Attribution(
