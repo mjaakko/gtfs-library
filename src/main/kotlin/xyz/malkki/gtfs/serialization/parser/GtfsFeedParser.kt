@@ -21,7 +21,11 @@ abstract class GtfsFeedParser : AutoCloseable {
         )
     }
 
-    protected inline fun <reified T> parseCsv(inputStream: InputStream): Stream<T> {
+    private inline fun <reified T> parseCsv(inputStream: InputStream?): Stream<T> {
+        if (inputStream == null) {
+            return Stream.empty()
+        }
+
         val settings = CsvParserSettings().apply {
             isHeaderExtractionEnabled = true
             nullValue = ""
@@ -29,6 +33,9 @@ abstract class GtfsFeedParser : AutoCloseable {
 
         return CsvRoutines(settings).iterate(T::class.java, inputStream, StandardCharsets.UTF_8).iterator().asSequence().asStream().onClose(inputStream::close)
     }
+
+    @Throws(IOException::class)
+    protected abstract fun getInputStream(fileName: String): InputStream?
 
     @Throws(IOException::class)
     protected abstract fun getFileNames(): Set<String>
@@ -50,53 +57,53 @@ abstract class GtfsFeedParser : AutoCloseable {
     }
 
     @Throws(IOException::class)
-    abstract fun parseAgencies(): Stream<Agency>
+    fun parseAgencies(): Stream<Agency> = parseCsv(getInputStream(GtfsConstants.AGENCY_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseAttributions(): Stream<Attribution>
+    fun parseAttributions(): Stream<Attribution> = parseCsv(getInputStream(GtfsConstants.ATTRIBUTIONS_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseCalendars(): Stream<Calendar>
+    fun parseCalendars(): Stream<Calendar> = parseCsv(getInputStream(GtfsConstants.CALENDAR_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseCalendarDates(): Stream<CalendarDate>
+    fun parseCalendarDates(): Stream<CalendarDate> = parseCsv(getInputStream(GtfsConstants.CALENDAR_DATES_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseFareRules(): Stream<FareRule>
+    fun parseFareRules(): Stream<FareRule> = parseCsv(getInputStream(GtfsConstants.FARE_RULES_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseFareAttributes(): Stream<FareAttribute>
+    fun parseFareAttributes(): Stream<FareAttribute> = parseCsv(getInputStream(GtfsConstants.FARE_ATTRIBUTES_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseFeedInfo(): Stream<FeedInfo>
+    fun parseFeedInfo(): Stream<FeedInfo> = parseCsv(getInputStream(GtfsConstants.FEED_INFO_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseFrequencies(): Stream<Frequency>
+    fun parseFrequencies(): Stream<Frequency> = parseCsv(getInputStream(GtfsConstants.FREQUENCIES_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseLevels(): Stream<Level>
+    fun parseLevels(): Stream<Level> = parseCsv(getInputStream(GtfsConstants.LEVELS_FILE))
 
     @Throws(IOException::class)
-    abstract fun parsePathways(): Stream<Pathway>
+    fun parsePathways(): Stream<Pathway> = parseCsv(getInputStream(GtfsConstants.PATHWAYS_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseRoutes(): Stream<Route>
+    fun parseRoutes(): Stream<Route> = parseCsv(getInputStream(GtfsConstants.ROUTES_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseShapes(): Stream<Shape>
+    fun parseShapes(): Stream<Shape> = parseCsv(getInputStream(GtfsConstants.SHAPES_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseStops(): Stream<Stop>
+    fun parseStops(): Stream<Stop> = parseCsv(getInputStream(GtfsConstants.STOPS_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseStopTimes(): Stream<StopTime>
+    fun parseStopTimes(): Stream<StopTime> = parseCsv(getInputStream(GtfsConstants.STOP_TIMES_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseTransfers(): Stream<Transfer>
+    fun parseTransfers(): Stream<Transfer> = parseCsv(getInputStream(GtfsConstants.TRANSFERS_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseTranslations(): Stream<Translation>
+    fun parseTranslations(): Stream<Translation> = parseCsv(getInputStream(GtfsConstants.TRANSLATIONS_FILE))
 
     @Throws(IOException::class)
-    abstract fun parseTrips(): Stream<Trip>
+    fun parseTrips(): Stream<Trip> = parseCsv(getInputStream(GtfsConstants.TRIPS_FILE))
 }
