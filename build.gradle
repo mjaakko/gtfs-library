@@ -47,6 +47,8 @@ dokkaHtml {
     dokkaSourceSets {
         configureEach {
             includes.from("docs/packages.md")
+
+            jdkVersion.set(11)
         }
     }
 }
