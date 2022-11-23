@@ -10,6 +10,9 @@ import java.nio.charset.StandardCharsets
 import java.util.stream.Stream
 import kotlin.streams.asStream
 
+/**
+ * Base class for GTFS parsers. This class implements the parsing CSV data from input streams and subclasses implement reading input streams from different sources
+ */
 abstract class GtfsFeedParser : AutoCloseable {
     companion object {
         private val REQUIRED_FILES = listOf(
@@ -56,54 +59,139 @@ abstract class GtfsFeedParser : AutoCloseable {
                 && ((GtfsConstants.TRANSLATIONS_FILE in fileNames && GtfsConstants.FEED_INFO_FILE in fileNames) || GtfsConstants.TRANSLATIONS_FILE !in GtfsConstants.FEED_INFO_FILE)
     }
 
+    /**
+     * Parses agencies file from the GTFS feed
+     *
+     * @return Stream of agencies
+     */
     @Throws(IOException::class)
     fun parseAgencies(): Stream<Agency> = parseCsv(getInputStream(GtfsConstants.AGENCY_FILE))
 
+    /**
+     * Parses attributions file from the GTFS feed
+     *
+     * @return Stream of attributions
+     */
     @Throws(IOException::class)
     fun parseAttributions(): Stream<Attribution> = parseCsv(getInputStream(GtfsConstants.ATTRIBUTIONS_FILE))
 
+    /**
+     * Parses calendars file from the GTFS feed
+     *
+     * @return Stream of calendars
+     */
     @Throws(IOException::class)
     fun parseCalendars(): Stream<Calendar> = parseCsv(getInputStream(GtfsConstants.CALENDAR_FILE))
 
+    /**
+     * Parses calendar dates file from the GTFS feed
+     *
+     * @return Stream of calendar dates
+     */
     @Throws(IOException::class)
     fun parseCalendarDates(): Stream<CalendarDate> = parseCsv(getInputStream(GtfsConstants.CALENDAR_DATES_FILE))
 
+    /**
+     * Parses fare rules file from the GTFS feed
+     *
+     * @return Stream of fare rules
+     */
     @Throws(IOException::class)
     fun parseFareRules(): Stream<FareRule> = parseCsv(getInputStream(GtfsConstants.FARE_RULES_FILE))
 
+    /**
+     * Parses fare attributes file from the GTFS feed
+     *
+     * @return Stream of fare attributes
+     */
     @Throws(IOException::class)
     fun parseFareAttributes(): Stream<FareAttribute> = parseCsv(getInputStream(GtfsConstants.FARE_ATTRIBUTES_FILE))
 
+    /**
+     * Parses feed info file from the GTFS feed
+     *
+     * @return Stream of feed info
+     */
     @Throws(IOException::class)
     fun parseFeedInfo(): Stream<FeedInfo> = parseCsv(getInputStream(GtfsConstants.FEED_INFO_FILE))
 
+    /**
+     * Parses frequencies file from the GTFS feed
+     *
+     * @return Stream of frequencies
+     */
     @Throws(IOException::class)
     fun parseFrequencies(): Stream<Frequency> = parseCsv(getInputStream(GtfsConstants.FREQUENCIES_FILE))
 
+    /**
+     * Parses levels file from the GTFS feed
+     *
+     * @return Stream of levels
+     */
     @Throws(IOException::class)
     fun parseLevels(): Stream<Level> = parseCsv(getInputStream(GtfsConstants.LEVELS_FILE))
 
+    /**
+     * Parses pathways file from the GTFS feed
+     *
+     * @return Stream of pathways
+     */
     @Throws(IOException::class)
     fun parsePathways(): Stream<Pathway> = parseCsv(getInputStream(GtfsConstants.PATHWAYS_FILE))
 
+    /**
+     * Parses routes file from the GTFS feed
+     *
+     * @return Stream of routes
+     */
     @Throws(IOException::class)
     fun parseRoutes(): Stream<Route> = parseCsv(getInputStream(GtfsConstants.ROUTES_FILE))
 
+    /**
+     * Parses shapes file from the GTFS feed
+     *
+     * @return Stream of shapes
+     */
     @Throws(IOException::class)
     fun parseShapes(): Stream<Shape> = parseCsv(getInputStream(GtfsConstants.SHAPES_FILE))
 
+    /**
+     * Parses stops file from the GTFS feed
+     *
+     * @return Stream of stops
+     */
     @Throws(IOException::class)
     fun parseStops(): Stream<Stop> = parseCsv(getInputStream(GtfsConstants.STOPS_FILE))
 
+    /**
+     * Parses stop times file from the GTFS feed
+     *
+     * @return Stream of stop times
+     */
     @Throws(IOException::class)
     fun parseStopTimes(): Stream<StopTime> = parseCsv(getInputStream(GtfsConstants.STOP_TIMES_FILE))
 
+    /**
+     * Parses transfers file from the GTFS feed
+     *
+     * @return Stream of transfers
+     */
     @Throws(IOException::class)
     fun parseTransfers(): Stream<Transfer> = parseCsv(getInputStream(GtfsConstants.TRANSFERS_FILE))
 
+    /**
+     * Parses translations file from the GTFS feed
+     *
+     * @return Stream of translations
+     */
     @Throws(IOException::class)
     fun parseTranslations(): Stream<Translation> = parseCsv(getInputStream(GtfsConstants.TRANSLATIONS_FILE))
 
+    /**
+     * Parses trips file from the GTFS feed
+     *
+     * @return Stream of trips
+     */
     @Throws(IOException::class)
     fun parseTrips(): Stream<Trip> = parseCsv(getInputStream(GtfsConstants.TRIPS_FILE))
 }

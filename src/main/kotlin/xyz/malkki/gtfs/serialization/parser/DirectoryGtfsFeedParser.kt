@@ -25,6 +25,9 @@ class DirectoryGtfsFeedParser(private val dirPath: Path) : GtfsFeedParser() {
         return Files.list(dirPath).map { it.fileName.toString() }.toList().toSet()
     }
 
+    /**
+     * Does nothing
+     */
     override fun close() {
 
     }
