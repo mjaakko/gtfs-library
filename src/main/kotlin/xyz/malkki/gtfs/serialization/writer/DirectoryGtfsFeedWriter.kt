@@ -17,5 +17,8 @@ class DirectoryGtfsFeedWriter(private val directory: Path) : GtfsFeedWriter() {
         return BufferedOutputStream(Files.newOutputStream(file))
     }
 
+    /**
+     * Does nothing
+     */
     override fun close() { }
 }

@@ -10,6 +10,9 @@ import java.io.IOException
 import java.io.OutputStream
 import java.util.stream.Stream
 
+/**
+ * Base class for GTFS writers. This class implements writing GTFS data to CSV format, which subclasses of this class write to output streams
+ */
 abstract class GtfsFeedWriter : AutoCloseable {
     private inline fun <reified T> writeToStream(content: Iterable<T>?, outputStream: OutputStream) {
         if (content != null) {
