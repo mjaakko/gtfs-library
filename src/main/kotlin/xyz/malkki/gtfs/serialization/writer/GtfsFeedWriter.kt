@@ -28,6 +28,7 @@ abstract class GtfsFeedWriter : AutoCloseable {
         }
     }
 
+    @Throws(IOException::class)
     protected abstract fun getOutputStreamForFile(fileName: String): OutputStream
 
     /**
