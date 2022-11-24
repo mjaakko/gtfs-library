@@ -23,9 +23,9 @@ Documentation for latest version is available [here](https://gtfslibrary.malkki.
 ```kotlin
 val gtfsParser = ZipGtfsFeedParser(Paths.get("gtfs.zip"))
 
-val stopList = gtfsParser.parseStops().toList()
-stopList.forEach { stop ->
-    
+val stops = gtfsParser.parseStops().toList()
+stops.forEach { stop ->
+  println("${stop.stopId} - ${stop.stopName}")
 }
 
 gtfsParser.close()
