@@ -15,9 +15,9 @@ data class Translation(
     @Parsed(field = ["field_name"]) val fieldName: String,
     @Parsed(field = ["language"]) val language: String,
     @Parsed(field = ["translation"]) val translation: String,
-    @Parsed(field = ["record_id"]) val recordId: String?,
-    @Parsed(field = ["record_sub_id"]) val recordSubId: String?,
-    @Parsed(field = ["field_value"]) val fieldValue: String?
+    @Parsed(field = ["record_id"]) val recordId: String? = null,
+    @Parsed(field = ["record_sub_id"]) val recordSubId: String? = null,
+    @Parsed(field = ["field_value"]) val fieldValue: String? = null
 ) {
     val languageAsLocale by lazy { Locale.forLanguageTag(language)!! }
 }

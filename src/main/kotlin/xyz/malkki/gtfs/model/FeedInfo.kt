@@ -18,12 +18,12 @@ data class FeedInfo(
     @Parsed(field = ["feed_publisher_name"]) val feedPublisherName: String,
     @Parsed(field = ["feed_publisher_url"]) val feedPublisherUrl: String,
     @Parsed(field = ["feed_lang"]) val feedLang: String,
-    @Parsed(field = ["default_lang"]) val defaultLang: String?,
-    @Parsed(field = ["feed_start_date"], applyDefaultConversion = false) @Convert(conversionClass = LocalDateConversion::class) val feedStartDate: LocalDate?,
-    @Parsed(field = ["feed_end_date"], applyDefaultConversion = false) @Convert(conversionClass = LocalDateConversion::class) val feedEndDate: LocalDate?,
-    @Parsed(field = ["feed_version"]) val feedVersion: String?,
-    @Parsed(field = ["feed_contact_email"]) val feedContactEmail: String?,
-    @Parsed(field = ["feed_contact_url"]) val feedContactUrl: String?
+    @Parsed(field = ["default_lang"]) val defaultLang: String? = null,
+    @Parsed(field = ["feed_start_date"], applyDefaultConversion = false) @Convert(conversionClass = LocalDateConversion::class) val feedStartDate: LocalDate? = null,
+    @Parsed(field = ["feed_end_date"], applyDefaultConversion = false) @Convert(conversionClass = LocalDateConversion::class) val feedEndDate: LocalDate? = null,
+    @Parsed(field = ["feed_version"]) val feedVersion: String? = null,
+    @Parsed(field = ["feed_contact_email"]) val feedContactEmail: String? = null,
+    @Parsed(field = ["feed_contact_url"]) val feedContactUrl: String? = null
 ) {
     val feedLangAsLocale by lazy { Locale.forLanguageTag(feedLang)!! }
     val defaultLangAsLocale by lazy { defaultLang?.let { Locale.forLanguageTag(defaultLang) } }

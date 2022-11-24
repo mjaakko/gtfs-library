@@ -17,5 +17,5 @@ data class Frequency(
     @Parsed(field = ["start_time"], applyDefaultConversion = false) @Convert(conversionClass = SecondsConversion::class) val startTime: Int,
     @Parsed(field = ["end_time"], applyDefaultConversion = false) @Convert(conversionClass = SecondsConversion::class) val endTime: Int,
     @Parsed(field = ["headway_secs"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val headwaySecs: Duration,
-    @Parsed(field = ["exact_times"], applyDefaultConversion = false) @Convert(conversionClass = NullableBooleanConversion::class) val exactTimes: Boolean?
+    @Parsed(field = ["exact_times"], applyDefaultConversion = false) @Convert(conversionClass = NullableBooleanConversion::class) val exactTimes: Boolean? = null
 )
