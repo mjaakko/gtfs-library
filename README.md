@@ -7,6 +7,8 @@ Documentation for latest version is available [here](https://gtfslibrary.malkki.
 
 * Parsing GTFS data from ZIP archives and uncompressed CSV files
 * Writing GTFS data to ZIP archives and uncompressed CSV files
+* Data classes for GTFS data types
+  * Properties use corresponding Java types when it makes sense (e.g. `LocalDate` for dates)
 * Utilities for handling GTFS date and time values
 
 ## Usage
