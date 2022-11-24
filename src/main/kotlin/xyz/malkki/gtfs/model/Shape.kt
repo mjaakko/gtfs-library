@@ -12,7 +12,7 @@ data class Shape(
     @Parsed(field = ["shape_pt_lat"]) val shapePtLat: Double,
     @Parsed(field = ["shape_pt_lon"]) val shapePtLon: Double,
     @Parsed(field = ["shape_pt_sequence"]) val shapePtSequence: Int,
-    @Parsed(field = ["shape_dist_traveled"]) val shapeDistTraveled: Double?
+    @Parsed(field = ["shape_dist_traveled"]) val shapeDistTraveled: Double? = null
 ) : Comparable<Shape> {
     /**
      * Compares this shape to the other.

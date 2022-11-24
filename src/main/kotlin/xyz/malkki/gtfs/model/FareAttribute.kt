@@ -19,9 +19,9 @@ data class FareAttribute(
     @Parsed(field = ["price"]) val price: Double,
     @Parsed(field = ["currency_type"]) val currencyType: String,
     @Parsed(field = ["payment_method"]) val paymentMethod: Int,
-    @Parsed(field = ["transfers"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val transfers: Int?,
-    @Parsed(field = ["agency_id"]) val agencyId: String?,
-    @Parsed(field = ["transfer_duration"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val transferDuration: Duration?
+    @Parsed(field = ["transfers"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val transfers: Int? = null,
+    @Parsed(field = ["agency_id"]) val agencyId: String? = null,
+    @Parsed(field = ["transfer_duration"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val transferDuration: Duration? = null
 ) {
     val currencyTypeAsCurrency: Currency? by lazy {
         try {

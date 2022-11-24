@@ -10,5 +10,5 @@ import xyz.malkki.gtfs.NoArgConstructor
 data class Level(
     @Parsed(field = ["level_id"]) val levelId: String,
     @Parsed(field = ["level_index"]) val levelIndex: Double,
-    @Parsed(field = ["level_name"]) val levelName: String?
+    @Parsed(field = ["level_name"]) val levelName: String? = null
 )

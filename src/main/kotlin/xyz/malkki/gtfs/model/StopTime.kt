@@ -14,17 +14,17 @@ import xyz.malkki.gtfs.serialization.converters.SecondsConversion
 @NoArgConstructor
 data class StopTime(
     @Parsed(field = ["trip_id", "\uFEFFtrip_id"]) val tripId: String,
-    @Parsed(field = ["arrival_time"], applyDefaultConversion = false) @Convert(conversionClass = SecondsConversion::class) val arrivalTime: Int?,
-    @Parsed(field = ["departure_time"], applyDefaultConversion = false) @Convert(conversionClass = SecondsConversion::class) val departureTime: Int?,
+    @Parsed(field = ["arrival_time"], applyDefaultConversion = false) @Convert(conversionClass = SecondsConversion::class) val arrivalTime: Int? = null,
+    @Parsed(field = ["departure_time"], applyDefaultConversion = false) @Convert(conversionClass = SecondsConversion::class) val departureTime: Int? = null,
     @Parsed(field = ["stop_id"]) val stopId: String,
     @Parsed(field = ["stop_sequence"]) val stopSequence: Int,
-    @Parsed(field = ["stop_headsign"]) val stopHeadsign: String?,
-    @Parsed(field = ["pickup_type"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val pickupType: Int?,
-    @Parsed(field = ["drop_off_type"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val dropOffType: Int?,
-    @Parsed(field = ["continuous_pickup"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val continuousPickup: Int?,
-    @Parsed(field = ["continuous_dropoff"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val continuousDropOff: Int?,
-    @Parsed(field = ["shape_dist_traveled"], applyDefaultConversion = false) @Convert(conversionClass = NullableDoubleConversion::class) val shapeDistTraveled: Double?,
-    @Parsed(field = ["timepoint"], applyDefaultConversion = false) @Convert(conversionClass = NullableBooleanConversion::class) val timepoint: Boolean?
+    @Parsed(field = ["stop_headsign"]) val stopHeadsign: String? = null,
+    @Parsed(field = ["pickup_type"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val pickupType: Int? = null,
+    @Parsed(field = ["drop_off_type"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val dropOffType: Int? = null,
+    @Parsed(field = ["continuous_pickup"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val continuousPickup: Int? = null,
+    @Parsed(field = ["continuous_dropoff"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val continuousDropOff: Int? = null,
+    @Parsed(field = ["shape_dist_traveled"], applyDefaultConversion = false) @Convert(conversionClass = NullableDoubleConversion::class) val shapeDistTraveled: Double? = null,
+    @Parsed(field = ["timepoint"], applyDefaultConversion = false) @Convert(conversionClass = NullableBooleanConversion::class) val timepoint: Boolean? = null
 ) : Comparable<StopTime> {
     /**
      * Compares this stop time to the other.

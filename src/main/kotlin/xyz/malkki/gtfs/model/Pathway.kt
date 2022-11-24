@@ -18,13 +18,13 @@ data class Pathway(
     @Parsed(field = ["to_stop_id"]) val toStopId: String,
     @Parsed(field = ["pathway_mode"]) val pathwayMode: Int,
     @Parsed(field = ["is_bidirectional"], applyDefaultConversion = false) @Convert(conversionClass = NullableBooleanConversion::class) val isBidirectional: Boolean,
-    @Parsed(field = ["length"]) val length: Double?,
-    @Parsed(field = ["traversal_time"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val traversalTime: Duration?,
-    @Parsed(field = ["stair_count"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val stairCount: Int?,
-    @Parsed(field = ["max_slope"]) val maxSlope: Double?,
-    @Parsed(field = ["min_width"]) val minWidth: Double?,
-    @Parsed(field = ["signposted_as"]) val signpostedAs: String?,
-    @Parsed(field = ["reversed_signposted_as"]) val reversedSignpostedAs: String?
+    @Parsed(field = ["length"]) val length: Double? = null,
+    @Parsed(field = ["traversal_time"], applyDefaultConversion = false) @Convert(conversionClass = DurationConversion::class) val traversalTime: Duration? = null,
+    @Parsed(field = ["stair_count"], applyDefaultConversion = false) @Convert(conversionClass = NullableIntegerConversion::class) val stairCount: Int? = null,
+    @Parsed(field = ["max_slope"]) val maxSlope: Double? = null,
+    @Parsed(field = ["min_width"]) val minWidth: Double? = null,
+    @Parsed(field = ["signposted_as"]) val signpostedAs: String? = null,
+    @Parsed(field = ["reversed_signposted_as"]) val reversedSignpostedAs: String? = null
 ) {
     companion object {
         const val PATHWAY_MODE_WALKWAY = 1
