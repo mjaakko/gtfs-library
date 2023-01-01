@@ -27,7 +27,7 @@ jobs:
         with:
           arguments: dokkaHtml
       - name: Upload documentation
-        uses: actions/upload-pages-artifact@v1.0.5
+        uses: actions/upload-pages-artifact@v1.0.7
         with:
           path: build/dokka/
       - name: Deploy to GitHub Pages
