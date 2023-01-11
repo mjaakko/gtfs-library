@@ -4,6 +4,9 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.time.format.DateTimeParseException
 
+/**
+ * Contains functions for parsing and formatting dates in GTFS format
+ */
 object GtfsDateFormat {
     private const val GTFS_DATE_FORMAT = "yyyyMMdd"
 

@@ -15,9 +15,12 @@ import java.util.zip.ZipOutputStream
  *
  * @param outputStream Output stream where the GTFS zip will be written
  * @param compressionLevel Compression level to be used, see [java.util.zip.Deflater] for possible values
+ * @constructor Creates ZipGtfsFeedWriter that writes data to the given output stream
  */
 class ZipGtfsFeedWriter @JvmOverloads @Throws(IOException::class) constructor(outputStream: OutputStream, compressionLevel: Int = Deflater.BEST_COMPRESSION) : GtfsFeedWriter() {
     /**
+     * Creates ZipGtfsFeedWriter that writes data to the given file
+     *
      * @param outputFile Path to the GTFS file
      * @param compressionLevel Compression level to be used, see [java.util.zip.Deflater] for possible values
      */

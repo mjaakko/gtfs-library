@@ -4,6 +4,9 @@ import java.time.LocalDate
 import java.time.ZoneId
 import java.time.ZonedDateTime
 
+/**
+ * Contains functions for calculating usable date-times from GTFS data
+ */
 object GtfsTimeUtils {
     /**
      * Calculates [ZonedDateTime] from GTFS service day and GTFS time. Implementation is based on the description of **Time** field described [here](https://developers.google.com/transit/gtfs/reference#field_types).

@@ -1,5 +1,8 @@
 package xyz.malkki.gtfs.utils
 
+/**
+ * Contains functions for parsing and formatting time values in GTFS format
+ */
 object GtfsTimeFormat {
     /**
      * Parses time in GTFS format (`HH:mm:ss`) to a number of seconds. Note that the amount of hours can be more than 23

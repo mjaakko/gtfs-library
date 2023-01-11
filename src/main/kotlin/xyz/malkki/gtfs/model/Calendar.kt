@@ -39,6 +39,8 @@ data class Calendar(
     }
 
     /**
+     * Creates an iterator that iterates through all dates in this Calendar in ascending order
+     *
      * @return Iterator, which iterates through all dates in this Calendar in ascending order
      */
     override fun iterator(): Iterator<LocalDate> = object : Iterator<LocalDate> {

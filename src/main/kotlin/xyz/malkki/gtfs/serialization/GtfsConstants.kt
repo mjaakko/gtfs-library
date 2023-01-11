@@ -1,5 +1,8 @@
 package xyz.malkki.gtfs.serialization
 
+/**
+ * Contains GTFS-related constants
+ */
 object GtfsConstants {
     const val AGENCY_FILE = "agency.txt"
     const val ATTRIBUTIONS_FILE = "attributions.txt"

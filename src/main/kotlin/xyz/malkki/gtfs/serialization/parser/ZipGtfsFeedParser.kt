@@ -11,9 +11,12 @@ import java.util.zip.ZipFile
  * Parses GTFS feed from a ZIP archive
  *
  * @param zipFile ZIP file that contains the GTFS feed
+ * @constructor Creates ZipGtfsFeedParser that reads data from the given ZIP file
  */
 class ZipGtfsFeedParser @Throws(IOException::class) constructor(private val zipFile: ZipFile) : GtfsFeedParser() {
     /**
+     * Creates ZipGtfsFeedParser that reads data from the given file
+     *
      * @param path Path to the ZIP file that contains the GTFS feed
      */
     @Throws(IOException::class)
