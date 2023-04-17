@@ -27,12 +27,12 @@ jobs:
         with:
           arguments: dokkaHtml
       - name: Upload documentation
-        uses: actions/upload-pages-artifact@v1.0.7
+        uses: actions/upload-pages-artifact@v1.0.8
         with:
           path: build/dokka/
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
   publish-maven-package:
     name: Publish Maven package
     runs-on: ubuntu-latest
