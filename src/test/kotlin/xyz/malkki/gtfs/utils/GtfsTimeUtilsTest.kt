@@ -14,4 +14,13 @@ class GtfsTimeUtilsTest {
 
         assertEquals(ZonedDateTime.of(LocalDateTime.of(2022, 1, 1, 12, 0, 0), ZoneId.of("Asia/Tokyo")), dateTime)
     }
+
+    @Test
+    fun `Text correct time is calculated from ZonedDateTime`() {
+        val date = LocalDate.now().plusDays(1)
+        val secs = 12000
+
+        val zonedDateTime = GtfsTimeUtils.gtfsTimeToZonedDateTime(date, secs, ZoneId.of("Africa/Cairo"))
+        assertEquals(secs, GtfsTimeUtils.zonedDateTimeToGtfsTime(zonedDateTime, date))
+    }
 }

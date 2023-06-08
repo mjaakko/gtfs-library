@@ -3,6 +3,7 @@ package xyz.malkki.gtfs.utils
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.ZonedDateTime
+import java.time.temporal.ChronoUnit
 
 object GtfsTimeUtils {
     /**
@@ -23,5 +24,19 @@ object GtfsTimeUtils {
     fun gtfsTimeToZonedDateTime(date: LocalDate, seconds: Int, timezone: ZoneId): ZonedDateTime {
         //See https://developers.google.com/transit/gtfs/reference#field_types
         return date.atTime(12, 0).atZone(timezone).minusHours(12).plusSeconds(seconds.toLong())
+    }
+
+    /**
+     * Inverse of [gtfsTimeToZonedDateTime]
+     *
+     * @param zonedDateTime ZonedDateTime
+     * @param date Service date relative to which the result is calculated
+     * @return Number of seconds
+     */
+    @JvmStatic
+    fun zonedDateTimeToGtfsTime(zonedDateTime: ZonedDateTime, date: LocalDate): Int {
+        val timezone = zonedDateTime.zone
+
+        return date.atTime(12, 0).atZone(timezone).minusHours(12).until(zonedDateTime, ChronoUnit.SECONDS).toInt()
     }
 }
